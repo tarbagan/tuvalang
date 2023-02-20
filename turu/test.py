@@ -1,24 +1,7 @@
-import pickle
+from turu import TuRu
 
-text_in = """
-Февраль 17-де, ай санаашкыны-биле Чаа чылга – Шагаа байырлалынга тураскаадып, Тыва Республиканың күрүне шаңналдарын тывыскан. Байырлал бүдүүзүнде Тываның Баштыңы Владислав Ховалыг төрээн чериниң байлак культурлуг өнчүзүн кадагалап, ону хөгжүдүп чоруур чаңчылчаан тыва иштиң маадырлары – малчыннарга, ус шеверлерге, уран чүүл күүседикчилеринге, башкыларга болгаш эртемденнерге өөрүп четтиргенин илереткен: «Эртип турар чылда чаагай үүле-херектериңер дээш сеткилдиң ханызындан өөрүп четтириишкинни илередип тур мен”.
-"""
-model_file = r'turu_model.pkl'
+model_file = r'models\turu_model.pkl'
+text_in = u'Февраль 17-де, ай санаашкыны-биле Чаа чылга – Шагаа байырлалынга тураскаадып, Тыва Республиканың күрүне шаңналдарын тывыскан.'
 
-# Открыть и использовать модель
-with open(model_file, 'rb') as f:
-    vec, clf = pickle.load(f)
-
-# Функция отчистки текста
-def text_preroccesor(text):
-    text = str(text).lower()
-    tokens = [x for x in text.split() if x.isalpha()]
-    return ' '.join(tokens)
-
-x_new = vec.transform([text_preroccesor(text_in)])
-preds = clf.predict(x_new)
-
-if preds[0] == 1:
-    print('Текст на тувинском языке')
-else:
-    print('Текст на русском языке')
+turu = TuRu()
+lang = turu.get_turu(text_in=text_in, model_file=model_file)
