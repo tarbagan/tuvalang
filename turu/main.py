@@ -28,12 +28,15 @@ class TuRu:
 
     def get_turu(self, model_file, text_in)->object:
         """Обработка текста моделью"""
-        vec, clf = TuRu.load_model(model_file)
-        text = TuRu.text_preroccesor(text_in)
-        text_transforme = vec.transform([text])
-        scor = clf.predict(text_transforme)
-
-        if scor[0] == 1:
-            return {"type": 1, "lang": "тувинский язык"}
-        else:
-            return {"type": 0, "lang": "русский язык"}
+        try:
+            vec, clf = TuRu.load_model(model_file)
+            text = TuRu.text_preroccesor(text_in)
+            text_transforme = vec.transform([text])
+            scor = clf.predict(text_transforme)
+    
+            if scor[0] == 1:
+                return {"type": 1, "lang": "тувинский язык"}
+            else:
+                return {"type": 0, "lang": "русский язык"}
+        except Exception as e:
+            return {"type": 3, "lang": e}
