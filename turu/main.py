@@ -5,7 +5,7 @@ warnings.filterwarnings("ignore")
 
 class TuRu:
     """
-    Система распознования тувинского/русского языка на базе обученной модели sklearn.MultinomialNB()
+    Модель бинарного классификатора тувинского/русского языка на базе sklearn.MultinomialNB()
     : load_model - загрузка предворительно обученной модели model_file
     : text_preroccesor - предварительная обработка текста
     : get_turu - базовая функция для обработки текста text_in
