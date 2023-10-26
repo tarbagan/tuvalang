@@ -23,4 +23,4 @@ out: {"type": 1, "lang": "tuvan"}
 (w2v_model, "тыва", ["улус", "чоон"]
 ```
 out:
-![Alt-текст]([https://avatars1.githubusercontent.com/u/5384215?v=3&s=460](https://raw.githubusercontent.com/tarbagan/tuvalang/main/tuva2vec/tuv2vec.png)https://raw.githubusercontent.com/tarbagan/tuvalang/main/tuva2vec/tuv2vec.png "Tuva2vec")
+![Alt-текст](https://raw.githubusercontent.com/tarbagan/tuvalang/main/tuva2vec/tuv2vec.png "Tuva2vec")
